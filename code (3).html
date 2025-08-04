@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divyanshu Pandey - Professional Portfolio</title>
+    <meta name="description" content="Professional portfolio of Divyanshu Pandey - Web Developer &amp; Student">
+
+    <!-- Preload critical resources for performance -->
+    <link rel="preload" href="assets/css/style.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@700;800&display=swap" as="style" crossorigin>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" as="style">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Google Fonts (Inter for body, JetBrains Mono for code, Outfit for headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Remix Icon Library -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Prism.js for syntax highlighting (core and common languages) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Particles Background (Canvas will be injected here by particles.js) -->
+    <div id="particles-js" aria-hidden="true"></div>
+
+    <!-- Enhanced Loading Screen -->
+    <div class="loader-screen hidden" id="loader" role="status" aria-live="polite" aria-label="Loading content">
+        <div class="loader-container">
+            <div class="loader-brand">Divyanshu Pandey</div>
+            <div class="loader-wrapper">
+                <div class="loader"></div>
+            </div>
+            <div class="loader-text">Finalizing Experience...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single Page Application (SPA) Container -->
+    <div class="app-container loaded" id="appContainer">
+        <!-- Header Section -->
+        <header class="header" id="header" role="banner">
+            <div class="nav-container">
+                <a href="#home" class="logo" data-route="home" aria-label="Divyanshu Pandey - Home">Divyanshu Pandey</a>
+                <nav role="navigation" aria-label="Main Navigation">
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home" class="nav-link active" data-route="home">Home</a></li>
+                        <li><a href="#about" class="nav-link" data-route="about">About</a></li>
+                        <li><a href="#skills" class="nav-link" data-route="skills">Skills</a></li>
+                        <li><a href="#projects" class="nav-link" data-route="projects">Projects</a></li>
+                        <li><a href="#blog" class="nav-link" data-route="blog">Blog</a></li>
+                        <li><a href="#education" class="nav-link" data-route="education">Education</a></li>
+                        <li><a href="#contact" class="nav-link" data-route="contact">Contact</a></li>
+                    </ul>
+                    <!-- Theme Toggle Button -->
+                    <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode">
+                        <i class="ri-sun-line"></i>
+                    </button>
+                    <!-- Mobile Menu Toggle Button -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+                        <i class="ri-menu-line"></i>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+            <ul class="mobile-nav-list">
+                <li><a href="#home" class="mobile-nav-link active" data-route="home"><i class="ri-home-line"></i> Home</a></li>
+                <li><a href="#about" class="mobile-nav-link" data-route="about"><i class="ri-user-line"></i> About</a></li>
+                <li><a href="#skills" class="mobile-nav-link" data-route="skills"><i class="ri-code-s-slash-line"></i> Skills</a></li>
+                <li><a href="#projects" class="mobile-nav-link" data-route="projects"><i class="ri-folder-open-line"></i> Projects</a></li>
+                <li><a href="#blog" class="mobile-nav-link" data-route="blog"><i class="ri-article-line"></i> Blog</a></li>
+                <li><a href="#education" class="mobile-nav-link" data-route="education"><i class="ri-graduation-cap-line"></i> Education</a></li>
+                <li><a href="#contact" class="mobile-nav-link" data-route="contact"><i class="ri-mail-line"></i> Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Route Indicator (Desktop only) -->
+        <div class="route-indicator" id="routeIndicator" role="navigation" aria-label="Page Sections">
+            <div class="route-dot active" data-route="home" tabindex="0" role="button" aria-label="Go to Home section">
+                <div class="route-label">Home</div>
+            </div>
+            <div class="route-dot" data-route="about" tabindex="0" role="button" aria-label="Go to About section">
+                <div class="route-label">About</div>
+            </div>
+            <div class="route-dot" data-route="skills" tabindex="0" role="button" aria-label="Go to Skills section">
+                <div class="route-label">Skills</div>
+            </div>
+            <div class="route-dot" data-route="projects" tabindex="0" role="button" aria-label="Go to Projects section">
+                <div class="route-label">Projects</div>
+            </div>
+            <div class="route-dot" data-route="blog" tabindex="0" role="button" aria-label="Go to Blog section">
+                <div class="route-label">Blog</div>
+            </div>
+            <div class="route-dot" data-route="education" tabindex="0" role="button" aria-label="Go to Education section">
+                <div class="route-label">Education</div>
+            </div>
+            <div class="route-dot" data-route="contact" tabindex="0" role="button" aria-label="Go to Contact section">
+                <div class="route-label">Contact</div>
+            </div>
+        </div>
+
+        <!-- Page Content Sections -->
+        <main id="main-content" role="main">
+            <!-- Home Page Section -->
+            <div class="page-content active" id="home-page" role="region" aria-labelledby="home-title">
+                <section class="hero">
+                    <div class="hero-bg" aria-hidden="true"></div>
+                    <div class="hero-container">
+                        <div class="hero-content">
+                            <p class="hero-subtitle"><span>Hi there, I'm</span></p>
+                            <h1 class="hero-title" id="home-title">
+                                <span class="gradient-text" id="typing-text"></span>
+                            </h1>
+                            <p class="hero-description">
+                                A passionate 12th-grade student and aspiring web developer, crafting beautiful digital experiences with modern technologies.
+                            </p>
+                            <div class="hero-cta">
+                                <button class="btn btn-primary" data-route="projects" aria-label="View My Work">
+                                    View My Work <i class="ri-arrow-right-line"></i>
+                                </button>
+                                <button class="btn btn-secondary" data-route="contact" aria-label="Get In Touch">
+                                    Get In Touch <i class="ri-mail-line"></i>
+                                </button>
+                            </div>
+                            <div class="social-links" role="group" aria-label="Social Media Links">
+                                <a href="https://github.com/Divyanshu5520" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                                    <i class="ri-github-fill"></i>
+                                </a>
+                                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                                    <i class="ri-linkedin-fill"></i>
+                                </a>
+                                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
+                                    <i class="ri-twitter-fill"></i>
+                                </a>
+                                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
+                                    <i class="ri-instagram-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <div class="hero-avatar">
+                                <img src="https://raw.githubusercontent.com/CodeCr4cker/About/main/Img/itz.png" alt="Divyanshu Pandey - Profile Picture" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- About Page Section -->
+            <div class="page-content" id="about-page" role="region" aria-labelledby="about-title">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-header">
+                            <p class="section-subtitle">Get to know me</p>
+                            <h2 class="section-title" id="about-title">About Me</h2>
+                            <p class="section-description">
+                                Passionate about creating digital solutions that make a difference
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <h3>My Journey</h3>
+                            <p>
+                                Hi there! I'm Divyanshu Pandey, a dedicated 12th-grade student with an unwavering passion for web development and technology. My journey into the world of coding began with curiosity and has evolved into a deep commitment to creating meaningful digital experiences.
+                            </p>
+                            <p>
+                                I specialize in front-end development, with expertise in HTML, CSS, JavaScript, and modern frameworks. I believe in writing clean, efficient code and staying updated with the latest industry trends and best practices.
+                            </p>
+                        </div>
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-code-s-slash-line"></i></div>
+                                <h3>15+ Projects</h3>
+                                <p>Successfully completed various web development projects ranging from simple websites to complex applications.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-time-line"></i></div>
+                                <h3>2+ Years Experience</h3>
+                                <p>Continuously learning and developing skills in web technologies and programming languages.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-tools-line"></i></div>
+                                <h3>Multiple Technologies</h3>
+                                <p>Proficient in HTML, CSS, JavaScript, Python, and various development tools and frameworks.</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonials Section -->
+                        <div class="section-header" style="margin-top: 6rem;">
+                            <p class="section-subtitle">What others say</p>
+                            <h2 class="section-title">Testimonials</h2>
+                            <p class="section-description">
+                                Kind words from people I've worked with
+                            </p>
+                        </div>
+                        <div class="testimonial-carousel" role="region" aria-label="Client Testimonials">
+                            <div class="testimonial-slides-container">
+                                <div class="testimonial-slide active" role="group" aria-roledescription="slide" aria-label="1 of 2">
+                                    <p class="testimonial-quote">"Divyanshu is a highly motivated and quick learner. His dedication to web development is truly impressive for his age."</p>
+                                    <p class="testimonial-author">- Mentor Name</p>
+                                    <p class="testimonial-role">Web Development Lead at XYZ Corp</p>
+                                </div>
+                                <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="2 of 2">
+                                    <p class="testimonial-quote">"Working with Divyanshu on our project was a pleasure. He delivered high-quality code and was always eager to learn and contribute."</p>
+                                    <p class="testimonial-author">- Colleague Name</p>
+                                    <p class="testimonial-role">Fellow Student Developer</p>
+                                </div>
+                            </div>
+                            <div class="carousel-nav-dots" role="tablist">
+                                <button class="dot active" role="tab" aria-selected="true" aria-controls="testimonial-slide-1" data-slide="0" aria-label="Go to slide 1"></button>
+                                <button class="dot" role="tab" aria-selected="false" aria-controls="testimonial-slide-2" data-slide="1" aria-label="Go to slide 2"></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Skills Page Section -->
+            <div class="page-content" id="skills-page" role="region" aria-labelledby="skills-title">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-header">
+                            <p class="section-subtitle">What I do</p>
+                            <h2 class="section-title" id="skills-title">Skills &amp; Expertise</h2>
+                            <p class="section-description">
+                                Technologies and tools I use to bring ideas to life
+                            </p>
+                        </div>
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-code-s-slash-line"></i></div>
+                                <h3>Frontend Development</h3>
+                                <p>HTML5, CSS3, JavaScript, Responsive Design - Creating beautiful and interactive user interfaces.</p>
+                                <div class="skill-bar-container" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Frontend Development skill level">
+                                    <div class="skill-bar" data-skill-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-database-2-line"></i></div>
+                                <h3>Backend &amp; Database</h3>
+                                <p>Python, MySQL, PHP, Building robust server-side applications and managing data.</p>
+                                <div class="skill-bar-container" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Backend & Database skill level">
+                                    <div class="skill-bar" data-skill-level="70"></div>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-tools-line"></i></div>
+                                <h3>Tools &amp; Technologies</h3>
+                                <p>Git &amp; GitHub, VS Code, Figma, Chrome DevTools, Netlify - Using modern development tools for efficient workflows.</p>
+                                <div class="skill-bar-container" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Tools & Technologies skill level">
+                                    <div class="skill-bar" data-skill-level="85"></div>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-smartphone-line"></i></div>
+                                <h3>Responsive Design</h3>
+                                <p>Mobile-first approach, Cross-browser compatibility, Progressive Web Apps - Ensuring great experiences across all devices.</p>
+                                <div class="skill-bar-container" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Responsive Design skill level">
+                                    <div class="skill-bar" data-skill-level="95"></div>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-palette-line"></i></div>
+                                <h3>UI/UX Design</h3>
+                                <p>User-centered design, Prototyping, Wireframing - Creating intuitive and engaging user experiences.</p>
+                                <div class="skill-bar-container" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="UI/UX Design skill level">
+                                    <div class="skill-bar" data-skill-level="75"></div>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-rocket-line"></i></div>
+                                <h3>Performance Optimization</h3>
+                                <p>Code optimization, Loading speed improvement, SEO best practices - Delivering fast and efficient web solutions.</p>
+                                <div class="skill-bar-container" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Performance Optimization skill level">
+                                    <div class="skill-bar" data-skill-level="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Projects Page Section -->
+            <div class="page-content" id="projects-page" role="region" aria-labelledby="projects-title">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-header">
+                            <p class="section-subtitle">My Work</p>
+                            <h2 class="section-title" id="projects-title">Featured Projects</h2>
+                            <p class="section-description">
+                                A showcase of my recent work and creative solutions
+                            </p>
+                        </div>
+
+                        <!-- Project Filters -->
+                        <div class="project-filters" role="group" aria-label="Filter Projects">
+                            <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                            <button class="filter-btn" data-filter="web-dev" aria-pressed="false">Web Development</button>
+                            <button class="filter-btn" data-filter="tools" aria-pressed="false">Tools</button>
+                            <button class="filter-btn" data-filter="design" aria-pressed="false">Design</button>
+                            <!-- Add more filters as needed -->
+                        </div>
+
+                        <div class="project-grid" id="projectGrid">
+                            <div class="feature-card project-card" data-category="tools web-dev" role="article" aria-labelledby="project-1-title">
+                                <div class="feature-icon"><i class="ri-file-text-line"></i></div>
+                                <h3 id="project-1-title">Code to PDF Converter</h3>
+                                <p>A web application that converts source code into beautifully formatted PDF documents with syntax highlighting and customizable themes.</p>
+                                <div class="project-links">
+                                    <a href="https://codecr4cker.github.io/Code-2-pdf/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Live Demo of Code to PDF Converter">
+                                        <i class="ri-external-link-line"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/Divyanshu5520/Code-2-pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="GitHub Repository for Code to PDF Converter">
+                                        <i class="ri-github-fill"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="feature-card project-card" data-category="web-dev design" role="article" aria-labelledby="project-2-title">
+                                <div class="feature-icon"><i class="ri-building-line"></i></div>
+                                <h3 id="project-2-title">Construction Portfolio</h3>
+                                <p>A professional portfolio website for a construction company, showcasing their projects, services, and company information with modern design.</p>
+                                <div class="project-links">
+                                    <a href="https://codecr4cker.github.io/html-test/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Live Demo of Construction Portfolio">
+                                        <i class="ri-external-link-line"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/Divyanshu5520/html-test" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="GitHub Repository for Construction Portfolio">
+                                        <i class="ri-github-fill"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="feature-card project-card" data-category="tools web-dev" role="article" aria-labelledby="project-3-title">
+                                <div class="feature-icon"><i class="ri-link"></i></div>
+                                <h3 id="project-3-title">Link Converter Tool</h3>
+                                <p>A utility web application for converting and managing different types of links, with features for URL validation and format conversion.</p>
+                                <div class="project-links">
+                                    <a href="https://codecr4cker.github.io/link-converter/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Live Demo of Link Converter Tool">
+                                        <i class="ri-external-link-line"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/Divyanshu5520/link-converter" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="GitHub Repository for Link Converter Tool">
+                                        <i class="ri-github-fill"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- More project cards will be dynamically loaded or added here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Blog Page Section -->
+            <div class="page-content" id="blog-page" role="region" aria-labelledby="blog-title">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-header">
+                            <p class="section-subtitle">Latest Updates</p>
+                            <h2 class="section-title" id="blog-title">Blog & Articles</h2>
+                            <p class="section-description">
+                                Sharing insights, tutorials, and thoughts on web development
+                            </p>
+                        </div>
+                        <div class="blog-grid" id="blogGrid">
+                            <!-- Blog posts will be dynamically loaded here -->
+                            <article class="blog-card" role="article" aria-labelledby="blog-1-title">
+                                <div class="blog-image">
+                                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=200&fit=crop&auto=format&q=80" alt="JavaScript Tips" loading="lazy" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span class="blog-category">JavaScript</span>
+                                        <span><i class="ri-calendar-line"></i> Dec 15, 2024</span>
+                                        <span><i class="ri-time-line"></i> 5 min read</span>
+                                    </div>
+                                    <h3 class="blog-title" id="blog-1-title">10 Essential JavaScript Tips for Beginners</h3>
+                                    <p class="blog-excerpt">
+                                        Discover the most important JavaScript concepts every beginner should master to become a proficient developer.
+                                    </p>
+                                    <a href="#" class="blog-read-more" data-blog-id="js-tips" aria-label="Read more about 10 Essential JavaScript Tips for Beginners">
+                                        Read More <i class="ri-arrow-right-line"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <article class="blog-card" role="article" aria-labelledby="blog-2-title">
+                                <div class="blog-image">
+                                    <img src="https://wallpapers.com/images/hd/code-text-programming-letters-symbols-0b6excz2s1qz1koa.jpg" alt="React Hooks" loading="lazy" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span class="blog-category">React</span>
+                                        <span><i class="ri-calendar-line"></i> Dec 5, 2024</span>
+                                        <span><i class="ri-time-line"></i> 12 min read</span>
+                                    </div>
+                                    <h3 class="blog-title" id="blog-2-title">React Hooks: A Complete Guide</h3>
+                                    <p class="blog-excerpt">
+                                        Learn how to use React Hooks effectively to build modern, functional React components with state management.
+                                    </p>
+                                    <a href="#" class="blog-read-more" data-blog-id="react-hooks" aria-label="Read more about React Hooks: A Complete Guide">
+                                        Read More <i class="ri-arrow-right-line"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <!-- More blog cards will be dynamically loaded or added here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Education Page Section -->
+            <div class="page-content" id="education-page" role="region" aria-labelledby="education-title">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-header">
+                            <p class="section-subtitle">My Journey</p>
+                            <h2 class="section-title" id="education-title">Education &amp; Achievements</h2>
+                            <p class="section-description">
+                                Academic milestones and learning experiences that shaped my path
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <h3>Current Education</h3>
+                            <p><strong>Class 12th - Science (PCM)</strong> | B.L Academy | 2024-2026</p>
+                            <p>Currently pursuing higher secondary education with focus on Physics, Chemistry, and Mathematics. Actively engaged in coding projects and web development alongside academic studies.</p>
+                        </div>
+                        <div class="content-section">
+                            <h3>Previous Education</h3>
+                            <p><strong>Class 10th</strong> | Shakun Vidya Niketan | 2022-2024</p>
+                            <p>Completed secondary education with 70% marks. Developed initial interest in computer science and began learning programming fundamentals during this period.</p>
+                        </div>
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-award-line"></i></div>
+                                <h3>HTML &amp; CSS Certification</h3>
+                                <p>Successfully completed comprehensive HTML and CSS course from FreeCodeCamp, demonstrating proficiency in modern web development practices.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-code-line"></i></div>
+                                <h3>JavaScript Fundamentals</h3>
+                                <p>Completed JavaScript programming course with focus on ES6+ features, DOM manipulation, and modern web development techniques.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-trophy-line"></i></div>
+                                <h3>Web Design Competition</h3>
+                                <p>Secured first position in inter-school web design competition, showcasing creativity and technical skills in responsive design.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-git-branch-line"></i></div>
+                                <h3>Open Source Contributor</h3>
+                                <p>Active contributor to open source projects on GitHub, helping improve documentation and fixing bugs in various repositories.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Contact Page Section -->
+            <div class="page-content" id="contact-page" role="region" aria-labelledby="contact-title">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-header">
+                            <p class="section-subtitle">Let's work together</p>
+                            <h2 class="section-title" id="contact-title">Get In Touch</h2>
+                            <p class="section-description">
+                                Have a project in mind? Let's discuss how we can bring your ideas to life
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <form id="contactForm" aria-label="Contact Form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="contactName">Full Name</label>
+                                        <input type="text" id="contactName" name="name" required aria-required="true" aria-describedby="nameError">
+                                        <div class="error-message" id="nameError" aria-live="polite"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactEmail">Email Address</label>
+                                        <input type="email" id="contactEmail" name="email" required aria-required="true" aria-describedby="emailError">
+                                        <div class="error-message" id="emailError" aria-live="polite"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactSubject">Subject</label>
+                                    <input type="text" id="contactSubject" name="subject" required aria-required="true" aria-describedby="subjectError">
+                                    <div class="error-message" id="subjectError" aria-live="polite"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactMessage">Message</label>
+                                    <textarea id="contactMessage" name="message" required rows="6" aria-required="true" aria-describedby="messageError"></textarea>
+                                    <div class="error-message" id="messageError" aria-live="polite"></div>
+                                </div>
+                                <!-- reCAPTCHA Placeholder -->
+                                <div id="recaptcha-container" class="form-group"></div>
+                                <button type="submit" class="btn btn-primary">
+                                    Send Message <i class="ri-send-plane-line"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-mail-line"></i></div>
+                                <h3>Email</h3>
+                                <p>divyanshu@example.com</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-phone-line"></i></div>
+                                <h3>Phone</h3>
+                                <p>+91 12345 67890</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-map-pin-line"></i></div>
+                                <h3>Location</h3>
+                                <p>Bahraigh, Uttar Pradesh, India</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon"><i class="ri-time-line"></i></div>
+                                <h3>Response Time</h3>
+                                <p>Within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+            <i class="ri-arrow-up-line"></i>
+        </button>
+
+        <!-- Notification Container -->
+        <div id="notification-container" aria-live="polite" aria-atomic="true"></div>
+    </div>
+
+    <!-- External JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <!-- Add other Prism.js language components as needed -->
+
+    <!-- Main Application JavaScript -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Service Worker Registration (for PWA capabilities) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
